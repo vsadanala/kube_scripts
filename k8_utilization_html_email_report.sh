@@ -12,7 +12,7 @@ echo " <style>
   letter-spacing:35px;
 }
 </style>"
-echo "<div class=\"k8\"> <h1 align=\"center\">THRIVEAI KUBERNETES</h1> </div>"
+echo "<div class=\"k8\"> <h1 align=\"center\">KUBERNETES</h1> </div>"
 printf "<h1 align=center><strong><span style="color:navy">Node Utilization - $environment : $dmy</span></strong></h1> <hr/> "
 /usr/local/bin/kubectl get nodes|awk '{print $1}'|sed 1,1d>/opt/k8health/hosts
 cat /opt/k8health/hosts|grep kube > /opt/k8health/master_nodes
@@ -95,7 +95,7 @@ printf "<hr/></pre></html>"
 #!/usr/bin/ksh
 /opt/k8health/prod_html_k8_utilization.sh > /opt/k8health/utilization.html
 dmy=$(date +%d-%m-%Y)
-export MAILTO="vamsi.x.sadanala@kp.org,farista.p.singh@kp.org,EOTMLPlatform@KaiserPermanente.onmicrosoft.com,Murali.X.Boyapati@kp.org,Satheeskumar.X.S@kp.org,Lakkidi.X.Yoganjaneya@kp.org,Uday.X.Naik@kp.org,Jasbir.Sidhu@kp.org"
+export MAILTO="vamseenath@gmail.com"
 export CONTENT="/opt/k8health/utilization.html"
 export SUBJECT="K8-PROD: NODE & USE CASE UTILIZATION REPORT - $dmy"
 (
