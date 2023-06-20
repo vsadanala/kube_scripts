@@ -156,3 +156,27 @@ done
 final_report_ns_cpu_mem_storage > /opt/k8health/automate/ns_cpu_mem_pvc_report.csv
 rm /opt/k8health/automate/x
 
+##############Python script-1#################################
+[root]# cat namespace_cpu_mem_val_sum.py
+import csv
+import pandas as pd
+df = pd.read_csv("/opt/k8health/automate/cpu_mem_format_converter.csv", sep=",")
+#df = pd.read_fwf('/opt/k8health/automate/usage_format.out',sep=',')
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 1000)
+df_g = df.groupby(by="Namespace").sum()
+print(df_g)
+##############Python script-2#################################
+[root]# cat ns_pvc_binded.py
+import csv
+import pandas as pd
+df = pd.read_csv("/opt/k8health/automate/ns_pvc_binded.csv", sep=",")
+df_g = df.groupby(by="Namespace").sum()
+print(df_g)
+##############Python script-3#################################
+[root]# cat pvc_util_py.py
+import csv
+import pandas as pd
+df = pd.read_csv("/opt/k8health/automate/pvc_util.csv", sep=" ")
+df_g = df.groupby(by="Namespace").sum()
+print(df_g)
